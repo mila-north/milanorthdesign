@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Base & Reset Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #020817 0%, #081a3e 50%, #030b21 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Header Navigation Layout
+   ========================================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto 3rem auto;
+  position: relative;
+}
+
+.logo-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-btn:hover {
+  transform: scale(1.05);
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.nav-container {
+  position: relative;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-btn {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  transform: scale(1.06);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #3b82f6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Email Profile Dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: #061530;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.25s ease;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.profile-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.email-text {
+  font-size: 0.95rem;
+  color: #60a5fa;
+  font-weight: 500;
+  user-select: all;
+}
+
+/* Hamburger Toggle Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger .bar {
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.hamburger .menu-text {
+  font-size: 0.7rem;
+  color: #ffffff;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Healthcare & AI Sub-page Layout
+   ========================================================================== */
+.hero-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* Desktop View: 4 Sub-cards Aligned in a Single Row */
+.subcards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.subcard {
+  position: relative;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  display: flex;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background-color: #06122b;
+}
+
+.subcard-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+.subcard-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom, 
+    rgba(2, 8, 23, 0.8) 0%, 
+    rgba(2, 8, 23, 0.2) 50%, 
+    transparent 100%
+  );
+  z-index: 2;
+}
+
+.subcard-title {
+  position: relative;
+  z-index: 3;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.brand-text {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: none;
+  color: #ffffff;
+}
+
+.subtitle-text {
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* Sub-card Hover Effect */
+.subcard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35);
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+.subcard:hover .subcard-bg {
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+/* Tablet View (iPad): Maintains 4 columns with scaled title & card height */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .subcards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .subcard {
+    height: 320px;
+    padding: 1.25rem;
+  }
+
+  .subcard-title {
+    font-size: 0.95rem;
+  }
+
+  .brand-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile View: Structured as 2 cards per row (2x2 Grid Layout) */
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    flex-direction: column;
+    background: #061530;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 0.85rem;
+    width: 220px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    z-index: 100;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-dropdown {
+    right: 0;
+    top: calc(100% + 11.5rem);
+    width: 220px;
+    text-align: center;
+  }
+
+  /* 2 Cards per row layout as specified in wireframe notes */
+  .subcards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .subcard {
+    height: 260px;
+    padding: 1rem;
+  }
+
+  .subcard-title {
+    font-size: 0.85rem;
+  }
+
+  .brand-text {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .subcard {
+    height: 220px;
+  }
+
+  .subcard-title {
+    font-size: 0.75rem;
+  }
+}

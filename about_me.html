@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - MilaNorthDesign</title>
+  <link rel="stylesheet" href="styles/about_me.css">
+</head>
+<body>
+
+  <header class="top-header">
+    <a href="index.html" class="logo-btn" aria-label="Go to Home Page">
+      <img src="images/my_logo.png" alt="MilaNorthDesign Logo" class="logo-img">
+    </a>
+  </header>
+
+  <main class="about-container">
+
+    <section class="hero-section">
+      
+      <div class="portrait-card">
+        <div class="portrait-bg" style="background-image: url('images/me_icon.png');"></div>
+      </div>
+
+      <div class="hero-details">
+        <h1 class="main-heading">Brand & Visual Designer</h1>
+        
+        <p class="tagline">
+          Research-driven <span class="highlight">branding</span>, visual <span class="highlight">storytelling</span>, & <span class="highlight">digital</span> experiences
+        </p>
+
+        <div class="background-info">
+          <p><strong class="highlight-blue">Background:</strong> Fine Arts School (Moscow, Russia)</p>
+          <p class="indent-text">Master's in Psychology</p>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="bio-section">
+      <p class="bio-paragraph">
+        An optimist, <span class="highlight">dreamer, & runner</span>. I guide the design process from 
+        <span class="highlight">strategy to polished detail</span>, crafting valuable experiences across physical or digital products.
+      </p>
+
+      <p class="bio-paragraph">
+        I tailor design to <span class="highlight">your brand's core values</span>, using color, visual storytelling, and motion to bring ideas 
+        <span class="highlight">to life</span> &mdash; <em>because motion is life.</em>
+      </p>
+
+      <div class="beyond-design">
+        <p><strong class="highlight-blue">Beyond design:</strong></p>
+        <p>Painting & motion design</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="contact-wrapper">
+        <button class="contact-btn" id="contactBtn" onclick="toggleContactDropdown()">
+          Contacts
+        </button>
+        
+        <div class="contact-dropdown" id="contactDropdown">
+          <a href="mailto:#" class="email-link">#</a>
+        </div>
+      </div>
+
+      <p class="response-note">
+        <em>Please allow up to 24 hours for an email response, as we may be in different time zones.</em>
+      </p>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleContactDropdown() {
+      const dropdown = document.getElementById('contactDropdown');
+      dropdown.classList.toggle('is-active');
+    }
+  </script>
+
+</body>
+</html>
