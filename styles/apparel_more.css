@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Base & Reset Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #020817 0%, #081a3e 50%, #030b21 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Header: Left-Aligned Home Logo Button
+   ========================================================================== */
+.top-header {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-btn {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-btn:hover {
+  transform: scale(1.05);
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Page Title & Grid Layout
+   ========================================================================== */
+.page-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+.page-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* 4-Column Card Grid (Desktop View) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.project-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Project Card Styling (Proportional to 808 x 632)
+   ========================================================================== */
+.project-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 808 / 632; /* Preserves exact proportions from draft */
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.8);
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+}
+
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 20, 45, 0.35);
+  transition: background 0.3s ease;
+}
+
+.project-card:hover .card-overlay {
+  background: rgba(10, 20, 45, 0.15);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem;
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   Sub-Buttons & Profile Dropdown Styling
+   ========================================================================== */
+.profile-dropdown {
+  display: none; /* JavaScript opens this on click */
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.sub-button {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: rgba(15, 28, 63, 0.7);
+  border: 1.5px solid rgba(59, 130, 246, 0.5);
+  border-radius: 30px; /* Pill-shaped buttons matching your visual draft */
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.sub-button:hover {
+  background: rgba(59, 130, 246, 0.9);
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+/* iPad / Tablet View */
+@media (max-width: 1024px) {
+  body {
+    padding: 2.5rem 2rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cards-grid {
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile Phone View (2-Column Card Grid Stack) */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  .top-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .logo-img {
+    height: 36px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Stacks into 2 columns on mobile matching phone draft */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+  }
+
+  .sub-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.78rem;
+  }
+}

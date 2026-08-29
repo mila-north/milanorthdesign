@@ -1,0 +1,369 @@
+/* ==========================================================================
+   Base & Reset Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #020817 0%, #081a3e 50%, #030b21 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Header: Logo Left-Aligned
+   ========================================================================== */
+.top-header {
+  width: 100%;
+  max-width: 2160px;
+  margin: 0 auto 3.5rem auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-btn {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-btn:hover {
+  transform: scale(1.05);
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Page Container & Title Layout
+   ========================================================================== */
+.page-container {
+  width: 100%;
+  max-width: 2160px;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+.page-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 3rem;
+  letter-spacing: -0.5px;
+}
+
+/* ==========================================================================
+   Grid Layout: 4 Cards Aligned in a Row (Desktop Base)
+   ========================================================================== */
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.project-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* Interactive Card Base */
+.project-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 808 / 632;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  background-color: #06122b;
+  display: flex;
+  padding: 2.25rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.95;
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom, 
+    rgba(2, 8, 23, 0.85) 0%, 
+    rgba(2, 8, 23, 0.25) 50%, 
+    transparent 100%
+  );
+  z-index: 2;
+}
+
+.card-content {
+  position: relative;
+  z-index: 3;
+}
+
+.brand-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.project-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(59, 130, 246, 0.4);
+  border-color: rgba(59, 130, 246, 0.7);
+}
+
+.project-card:hover .card-bg {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   Dropdown Behavior
+   ========================================================================== */
+.profile-dropdown {
+  display: none;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+  width: 100%;
+  animation: fadeInDown 0.3s ease forwards;
+}
+
+.profile-dropdown.is-active {
+  display: flex;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sub-button {
+  display: inline-block;
+  width: 85%;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 28, 63, 0.85);
+  border: 1.5px solid rgba(59, 130, 246, 0.5);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.sub-button:hover {
+  background: rgba(59, 130, 246, 0.9);
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Nested PAN Menu Styling */
+.nested-dropdown-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pan-toggle {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.nested-menu {
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+.nested-menu.is-open {
+  display: flex;
+}
+
+.sub-button.sub-child {
+  width: 75%;
+  font-size: 0.85rem;
+  background: rgba(30, 58, 120, 0.75);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 1440px) {
+  body {
+    padding: 2.5rem;
+  }
+
+  .page-title {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .cards-row {
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .brand-title {
+    font-size: 1.75rem;
+  }
+
+  .sub-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding: 2rem 1.5rem;
+  }
+
+  .top-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .logo-img {
+    height: 38px;
+  }
+
+  .page-title {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .cards-row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .brand-title {
+    font-size: 1.25rem;
+  }
+
+  .sub-button {
+    width: 95%;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.6rem;
+    border-radius: 8px;
+  }
+
+  .sub-button.sub-child {
+    width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  .top-header {
+    margin-bottom: 2rem;
+  }
+
+  .logo-img {
+    height: 32px;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .project-card {
+    padding: 0.85rem;
+    border-radius: 10px;
+  }
+
+  .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .sub-button {
+    width: 100%;
+    font-size: 0.7rem;
+    padding: 0.45rem 0.5rem;
+    border-radius: 6px;
+  }
+
+  .sub-button.sub-child {
+    width: 90%;
+  }
+}
+
+@media (max-width: 420px) {
+  .cards-row {
+    gap: 0.65rem;
+  }
+
+  .project-card {
+    padding: 0.65rem;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+  }
+
+  .sub-button {
+    font-size: 0.65rem;
+  }
+}

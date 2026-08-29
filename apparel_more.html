@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apparel & Lifestyle - MilaNorthDesign</title>
+  <link rel="stylesheet" href="styles/apparel_more.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="top-header">
+    <a href="index.html" class="logo-btn" aria-label="Go to Home Page">
+      <img src="images/my_logo.png" alt="MilaNorthDesign Logo" class="logo-img">
+    </a>
+  </header>
+
+  <!-- Page Main Content Area -->
+  <main class="page-container">
+    <h1 class="page-title">Apparel<br>&amp; Lifestyle</h1>
+
+    <section class="cards-grid">
+
+      <!-- Category 1: Branding Apparel -->
+      <article class="project-card-wrapper">
+        <div class="project-card" onclick="toggleDropdown('brandingDropdown')">
+          <div class="card-bg" style="background-image: url('images/icon5.png');"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h2 class="brand-title">Apparel&more</h2>
+          </div>
+        </div>
+        <div class="profile-dropdown" id="brandingDropdown">
+          <a href="glenecho.html" class="sub-button">Glen Echo Aquarium</a>
+          <a href="jazve.html" class="sub-button">Jazve Coffee</a>
+        </div>
+      </article>
+
+      <!-- Category 2: Amazon -->
+      <article style="display: none;" class="project-card-wrapper">
+        <div class="project-card" onclick="toggleDropdown('amazonDropdown')">
+          <div class="card-bg" style="background-image: url('images/icon6.png');"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h2 class="brand-title">Amazon</h2>
+          </div>
+        </div>
+        <div class="profile-dropdown" id="amazonDropdown">
+          <a href="tees.html" class="sub-button">Tees</a>
+          <a href="birds.html" class="sub-button">Birds</a>
+        </div>
+      </article>
+
+      <!-- Category 3: Mix Art -->
+      <article style="display: none;" class="project-card-wrapper">
+        <div class="project-card" onclick="toggleDropdown('mixartDropdown')">
+          <div class="card-bg" style="background-image: url('images/icon7.png');"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h2 class="brand-title">Mix Art</h2>
+          </div>
+        </div>
+        <div class="profile-dropdown" id="mixartDropdown">
+          <a href="painting.html" class="sub-button">Painting</a>
+          <a href="accessories.html" class="sub-button">Accessories</a>
+        </div>
+      </article>
+
+      <!-- Category 4: Social Media -->
+      <article style="display: none;" class="project-card-wrapper">
+        <div class="project-card" onclick="toggleDropdown('socialDropdown')">
+          <div class="card-bg" style="background-image: url('images/icon8.png');"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h2 class="brand-title">Social Media</h2>
+          </div>
+        </div>
+        <div class="profile-dropdown" id="socialDropdown">
+          <a href="holidays.html" class="sub-button">Holidays</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script>
+    function toggleDropdown(id) {
+      const target = document.getElementById(id);
+      const isVisible = target.style.display === "flex";
+      
+      // Close all active dropdowns first
+      document.querySelectorAll('.profile-dropdown').forEach(dropdown => {
+        dropdown.style.display = 'none';
+      });
+
+      // Toggle clicked dropdown
+      if (!isVisible) {
+        target.style.display = "flex";
+      }
+    }
+  </script>
+
+</body>
+</html>

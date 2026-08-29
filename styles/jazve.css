@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Base & Reset Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ffffff; /* Clean white background */
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Header: Logo Left-Aligned (Matches Brand Systems Header Structure)
+   ========================================================================== */
+.top-header {
+  width: 100%;
+  max-width: 2160px;
+  margin: 0 auto 2.5rem auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-btn {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-btn:hover {
+  transform: scale(1.05);
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Page Container & Image Showcase Container
+   ========================================================================== */
+.page-container {
+  width: 100%;
+  max-width: 2160px;
+  margin: 0 auto;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.image-wrapper {
+  width: 100%;
+  max-width: 1200px; /* Limits max width for optimal layout framing on ultra-wide screens */
+  display: flex;
+  justify-content: center;
+}
+
+.showcase-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  /* Optional subtle drop shadow for presentation depth */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+/* Laptop View (Up to 1440px) */
+@media (max-width: 1440px) {
+  body {
+    padding: 2.5rem;
+  }
+}
+
+/* iPad / Tablet View */
+@media (max-width: 1024px) {
+  body {
+    padding: 2rem 1.5rem;
+  }
+
+  .top-header {
+    margin-bottom: 2rem;
+  }
+
+  .logo-img {
+    height: 38px;
+  }
+}
+
+/* Phone View */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  .top-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-img {
+    height: 32px;
+  }
+  
+  .showcase-img {
+    border-radius: 4px;
+  }
+}

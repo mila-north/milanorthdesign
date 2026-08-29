@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Systems - MilaNorthDesign</title>
+  <link rel="stylesheet" href="styles/2brand_systems.css">
+</head>
+<body>
+
+  <header class="top-header">
+    <a href="index.html" class="logo-btn" aria-label="Go to Home Page">
+      <img src="images/my_logo.png" alt="MilaNorthDesign Logo" class="logo-img">
+    </a>
+  </header>
+
+  <main class="page-container">
+    <h1 class="page-title">Brand Systems</h1>
+
+    <section class="cards-row">
+
+      <article class="project-card-wrapper">
+        <div class="project-card" onclick="toggleDropdown('bethesdaDropdown')">
+          <div class="card-bg" style="background-image: url('images/bg.icon.png');"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h2 class="brand-title">Bethesda Green</h2>
+          </div>
+        </div>
+        <div class="profile-dropdown" id="bethesdaDropdown">
+          <a href="green.html" class="sub-button">Rebrand</a>
+        </div>
+      </article>
+
+      <article class="project-card-wrapper">
+        <div class="project-card" onclick="toggleDropdown('yamasakiDropdown')">
+          <div class="card-bg" style="background-image: url('images/ya.icon.png');"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h2 class="brand-title">Yamasaki Academy</h2>
+          </div>
+        </div>
+        <div class="profile-dropdown" id="yamasakiDropdown">
+          <a href="70_annive.html" class="sub-button">70 Anniversary</a>
+          
+          <!-- Nested PAN Dropdown Group -->
+          <div class="nested-dropdown-group">
+            <button type="button" class="sub-button pan-toggle" onclick="togglePanMenu(event)">
+              PAN Kids &#9662;
+            </button>
+            <div class="nested-menu" id="panSubMenu">
+              <a href="pan26.html" class="sub-button sub-child">Pan 2026</a>
+              <a href="pan25.html" class="sub-button sub-child">Pan 2025</a>
+              <a href="pan24.html" class="sub-button sub-child">Pan 2024</a>
+            </div>
+          </div>
+
+          <a href="30th Anniversary.html" class="sub-button">30 Anniversary</a>
+          <a href="Rash-guards.html" class="sub-button">Rash Guards</a>
+        </div>
+      </article>
+
+      <article class="project-card-wrapper">
+        <div class="project-card" onclick="toggleDropdown('ariadneDropdown')">
+          <div class="card-bg" style="background-image: url('images/ariadne.icon.png');"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h2 class="brand-title">Ariadne</h2>
+          </div>
+        </div>
+        <div class="profile-dropdown" id="ariadneDropdown">
+          <a href="bio-tech-identity.html" class="sub-button">Bio - Tech Identity</a>
+        </div>
+      </article>
+
+      <article class="project-card-wrapper">
+        <div class="project-card" onclick="toggleDropdown('tildenDropdown')">
+          <div class="card-bg" style="background-image: url('images/tw.icon.png');"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <h2 class="brand-title">Tilden Woods</h2>
+          </div>
+        </div>
+        <div class="profile-dropdown" id="tildenDropdown">
+          <a href="swimteam.html" class="sub-button">Swim Team</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script>
+    function toggleDropdown(dropdownId) {
+      const targetDropdown = document.getElementById(dropdownId);
+      const allDropdowns = document.querySelectorAll('.profile-dropdown');
+
+      // Close all other main dropdowns
+      allDropdowns.forEach(dropdown => {
+        if (dropdown.id !== dropdownId) {
+          dropdown.classList.remove('is-active');
+        }
+      });
+
+      // Toggle main card dropdown
+      targetDropdown.classList.toggle('is-active');
+    }
+
+    function togglePanMenu(event) {
+      // Prevents closing the parent dropdown when clicking PAN Kids
+      event.stopPropagation(); 
+      const panMenu = document.getElementById('panSubMenu');
+      panMenu.classList.toggle('is-open');
+    }
+  </script>
+
+</body>
+</html>
