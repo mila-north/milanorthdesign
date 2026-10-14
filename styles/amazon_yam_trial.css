@@ -1,0 +1,201 @@
+/* ==========================================================================
+   Base & Reset Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f9fafb;
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Header: Logo Left, Project Title Center, Demo Button Right
+   ========================================================================== */
+.top-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-btn {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-btn:hover {
+  transform: scale(1.05);
+}
+
+.logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.header-titles {
+  text-align: center;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+.project-subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Primary Action Button */
+.run-demo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  background-color: #2563eb;
+  border: 1.5px solid #1d4ed8;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  white-space: nowrap;
+}
+
+.run-demo-btn:hover {
+  background-color: #1d4ed8;
+  border-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* ==========================================================================
+   Main Container & Responsive Grid
+   ========================================================================== */
+.page-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+/* 2-Column Grid for Desktop / Tablet */
+.slides-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Slide Card Container */
+.slide-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.slide-image-wrapper {
+  width: 100%;
+  background-color: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+/* Laptop View (Up to 1024px) */
+@media (max-width: 1024px) {
+  body {
+    padding: 2rem 1.5rem;
+  }
+
+  .slides-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile View (Up to 768px): Displays slides ONE BY ONE vertically */
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem 1rem;
+  }
+
+  .top-header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-titles {
+    order: 3;
+    width: 100%;
+    margin-top: 0.75rem;
+    text-align: left;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .logo-img {
+    height: 34px;
+  }
+
+  .run-demo-btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+
+  /* Single column display for mobile photos */
+  .slides-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .slide-card {
+    border-radius: 8px;
+  }
+}

@@ -1,0 +1,265 @@
+CSS
+/* ==========================================================================
+   Base & Reset Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Header Layout
+   ========================================================================== */
+.top-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-btn {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-btn:hover {
+  transform: scale(1.05);
+}
+
+.logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.header-titles {
+  text-align: center;
+}
+
+.project-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.project-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: block;
+  margin-top: 2px;
+}
+
+.run-demo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  background-color: #2563eb;
+  border: 1.5px solid #1d4ed8;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  white-space: nowrap;
+}
+
+.run-demo-btn:hover {
+  background-color: #1d4ed8;
+  border-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* ==========================================================================
+   Main Container & Grid Structure
+   ========================================================================== */
+.page-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 3 Items in 1 Row Desktop Layout */
+.gallery-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* ==========================================================================
+   Media Cards & 1080x1350 Aspect Ratio Enforcement
+   ========================================================================== */
+.media-card,
+.video-container {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  width: 100%;
+}
+
+.media-card:hover,
+.video-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Maintains exact 1080x1350 (4:5 vertical portrait aspect ratio) */
+.media-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1080 / 1350;
+  background-color: #0f172a;
+  overflow: hidden;
+}
+
+.media-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Video Styling Fixes */
+.video-container {
+  aspect-ratio: 1080 / 1350;
+  background-color: #0f172a;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   Video Overlay Badge ("The process Demo")
+   ========================================================================== */
+.overlay-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  pointer-events: none;
+  z-index: 10;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.badge-title {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.badge-sub {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+/* ==========================================================================
+   Description Text Box & Divider
+   ========================================================================== */
+.description-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.description-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+}
+
+.description-text {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #cbd5e1;
+  margin: 0.75rem 0 1.25rem 0;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Mobile: Stacked 1 column)
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem 1rem;
+  }
+
+  .top-header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-titles {
+    order: 3;
+    width: 100%;
+    margin-top: 0.75rem;
+    text-align: left;
+  }
+
+  .project-title {
+    font-size: 1.15rem;
+  }
+
+  /* Single Column Stacked Layout on Mobile */
+  .gallery-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .badge-title,
+  .badge-sub {
+    font-size: 1.1rem;
+  }
+
+  .description-card {
+    padding: 1rem;
+  }
+}
