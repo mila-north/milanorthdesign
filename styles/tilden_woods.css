@@ -1,7 +1,9 @@
 /* ==========================================================================
    Base & Reset Styles
    ========================================================================== */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,24 +11,24 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #ffffff; /* Clean white background */
+  background-color: #f9fafb;
   color: #1a1a1a;
   min-height: 100vh;
-  padding: 3rem 4rem;
+  padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
 }
 
 /* ==========================================================================
-   Header: Logo Left-Aligned (Matches Brand Systems Header Structure)
+   Header: Minimal Logo Alignment
    ========================================================================== */
 .top-header {
   width: 100%;
-  max-width: 2160px;
+  max-width: 1200px;
   margin: 0 auto 2.5rem auto;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .logo-btn {
@@ -36,75 +38,80 @@ body {
 }
 
 .logo-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .logo-img {
-  height: 48px;
+  height: 42px;
   width: auto;
   display: block;
 }
 
 /* ==========================================================================
-   Page Container & Image Showcase Container
+   Main Container & Responsive Grid Layout
    ========================================================================== */
 .page-container {
   width: 100%;
-  max-width: 2160px;
+  max-width: 1200px;
   margin: 0 auto;
   flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
 
-.image-wrapper {
+/* 2-Column Grid for Desktop / Tablet */
+.slides-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Slide Card Styling */
+.slide-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.slide-image-wrapper {
   width: 100%;
-  max-width: 1200px; /* Limits max width for optimal layout framing on ultra-wide screens */
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.showcase-img {
+.slide-img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
-  /* Optional subtle drop shadow for presentation depth */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
 }
 
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
 
-/* Laptop View (Up to 1440px) */
-@media (max-width: 1440px) {
-  body {
-    padding: 2.5rem;
-  }
-}
-
-/* iPad / Tablet View */
 @media (max-width: 1024px) {
   body {
     padding: 2rem 1.5rem;
   }
 
-  .top-header {
-    margin-bottom: 2rem;
-  }
-
-  .logo-img {
-    height: 38px;
+  .slides-grid {
+    gap: 1.5rem;
   }
 }
 
-/* Phone View */
 @media (max-width: 768px) {
   body {
-    padding: 1.5rem 1rem;
+    padding: 1.25rem 1rem;
   }
 
   .top-header {
@@ -112,10 +119,15 @@ body {
   }
 
   .logo-img {
-    height: 32px;
+    height: 34px;
   }
-  
-  .showcase-img {
-    border-radius: 4px;
+
+  .slides-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .slide-card {
+    border-radius: 8px;
   }
 }
