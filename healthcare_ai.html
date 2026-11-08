@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Healthcare & AI - MilaNorthDesign</title>
-  <link rel="stylesheet" href="styles/healthcare_ai.css">
+  <link rel="stylesheet" href="styles/healthcare_ai1.css">
 </head>
 <body>
 
@@ -17,51 +17,69 @@
   <main class="page-container">
     <h1 class="page-title">Healthcare & AI</h1>
 
-    <section class="cards-row">
+    <section class="cards-grid">
 
-      <a href="medical_platform.html" class="project-card">
-        <div class="card-bg" style="background-image: url('images/1.png');"></div>
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <h2 class="card-heading">AI-POWERED<br>MEDICAL Research Platform</h2>
-        </div>
-      </a>
+      <!-- CARD 1: AI Evolution Labs -->
+      <details class="card-wrapper">
+        <summary class="project-card">
+          <div class="card-bg" style="background-image: url('images/1.png');"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div class="card-heading">
+              <span class="brand-title">AI Evolution Labs</span>
+              <span class="sub-text">Healthcare & AI Suite</span>
+            </div>
+          </div>
+          <div class="chevron-icon" aria-hidden="true">▾</div>
+        </summary>
 
-      <a href="med_fair.html" class="project-card">
-        <div class="card-bg" style="background-image: url('images/2.png');"></div>
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <h2 class="card-heading">
-            <span class="brand-title">AISeer</span>
-            <span class="sub-text">MEDICAL FAIR BOOTH</span>
-          </h2>
-        </div>
-      </a>
+        <!-- Yamasaki-style Dropdown Pill Buttons -->
+        <nav class="card-dropdown" aria-label="AI Evolution Labs Projects">
+          <a href="medical_platform.html" class="dropdown-item">UX Research</a>
+          <a href="med_fair.html" class="dropdown-item">Medical Fair</a>
+          <a href="landing_experience.html" class="dropdown-item">Landing Page</a>
+          <a href="ecosystem.html" class="dropdown-item">Brand Ecosystem</a>
+        </nav>
+      </details>
 
-      <a href="landing_experience.html" class="project-card">
-        <div class="card-bg" style="background-image: url('images/3.png');"></div>
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <h2 class="card-heading">
-            <span class="brand-title">AI Evolution Labs</span>
-            <span class="sub-text">Landing Page</span>
-          </h2>
-        </div>
-      </a>
+      <!-- CARD 2: Foundation to Fight H-ABC -->
+      <details class="card-wrapper">
+        <summary class="project-card">
+          <div class="card-bg" style="background-image: url('images/habc_card.png');"></div>
+          <div class="card-overlay habc-overlay"></div>
+          <div class="card-content">
+            <div class="card-heading">
+              <span class="brand-title">Foundation to Fight H-ABC</span>
+              <span class="sub-text">Social Media Awareness</span>
+            </div>
+          </div>
+          <div class="chevron-icon" aria-hidden="true">▾</div>
+        </summary>
 
-      <a href="ecosystem.html" class="project-card">
-        <div class="card-bg" style="background-image: url('images/4.png');"></div>
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <h2 class="card-heading">
-            <span class="brand-title">AI Evolution Labs</span>
-            <span class="sub-text">Ecosystem and Branding</span>
-          </h2>
-        </div>
-      </a>
+        <!-- Yamasaki-style Dropdown Pill Button (Single Link) -->
+        <nav class="card-dropdown" aria-label="H-ABC Projects">
+          <a href="h_abc_posts.html" class="dropdown-item">Awareness Campaign</a>
+        </nav>
+      </details>
 
     </section>
   </main>
 
+  <script>
+    // Exclusive accordion toggle: close one dropdown when opening another
+    document.addEventListener('DOMContentLoaded', () => {
+      const allDetails = document.querySelectorAll('.card-wrapper');
+
+      allDetails.forEach(details => {
+        details.addEventListener('toggle', () => {
+          if (details.open) {
+            allDetails.forEach(other => {
+              if (other !== details) other.open = false;
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
