@@ -9,7 +9,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #ffffff; /* Clean white background */
+  background-color: #ffffff;
   color: #1a1a1a;
   min-height: 100vh;
   padding: 2.5rem 2rem;
@@ -65,7 +65,7 @@ body {
 }
 
 /* ==========================================================================
-   Main Container & 2-Column Responsive Grid Layout
+   Main Container & Grid Layout
    ========================================================================== */
 .page-container {
   width: 100%;
@@ -74,7 +74,7 @@ body {
   flex-grow: 1;
 }
 
-/* Always 2 Columns for Desktop & Mobile */
+/* Desktop: 2 Columns */
 .slides-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -84,7 +84,7 @@ body {
 
 /* Section Divider Headers */
 .section-header-block {
-  grid-column: 1 / -1; /* Spans across both columns */
+  grid-column: 1 / -1; /* Spans across all columns */
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -162,7 +162,7 @@ body {
 }
 
 /* ==========================================================================
-   Responsive Adaptations (Maintains 2-in-a-row display)
+   Responsive Adaptations (1 Column Stacked for Mobile)
    ========================================================================== */
 @media (max-width: 768px) {
   body {
@@ -182,8 +182,10 @@ body {
     text-align: left;
   }
 
+  /* Switches grid from 2 columns to 1 column on mobile */
   .slides-grid {
-    gap: 1rem; /* Reduced gap for smaller screens while staying 2-in-a-row */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .slide-caption {
@@ -191,7 +193,7 @@ body {
   }
 
   .slide-caption p {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     line-height: 1.4;
   }
 }
